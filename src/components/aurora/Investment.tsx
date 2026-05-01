@@ -30,7 +30,7 @@ const Investment = () => (
         </p>
 
         <Button asChild variant="aurora" size="xl">
-          <a href="#aplicar">Aplicar para o método</a>
+          <a href="https://wa.me/5534992210101">Aplicar para o método</a>
         </Button>
       </div>
     </div>
