@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Aurora premium palette — warm nudes, soft gold, off-white */
+    --background: 36 38% 97%;
+    --foreground: 25 25% 18%;
+
+    --card: 36 40% 98%;
+    --card-foreground: 25 25% 18%;
+
+    --popover: 36 40% 98%;
+    --popover-foreground: 25 25% 18%;
+
+    --primary: 28 35% 60%; /* warm nude/gold */
+    --primary-foreground: 36 40% 98%;
+
+    --primary-glow: 32 60% 78%; /* soft golden glow */
+    --primary-deep: 24 30% 35%; /* warm brown */
+
+    --secondary: 32 30% 92%;
+    --secondary-foreground: 25 25% 22%;
+
+    --muted: 33 25% 93%;
+    --muted-foreground: 25 12% 42%;
+
+    --accent: 30 45% 85%;
+    --accent-foreground: 25 30% 22%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 36 40% 98%;
+
+    --border: 30 22% 88%;
+    --input: 30 22% 88%;
+    --ring: 28 35% 60%;
+
+    --radius: 0.75rem;
+
+    /* Editorial design tokens */
+    --nude: 30 40% 88%;
+    --beige: 33 35% 82%;
+    --gold: 35 55% 70%;
+    --gold-soft: 38 65% 85%;
+    --brown-light: 25 25% 45%;
+    --offwhite: 36 38% 97%;
+
+    --gradient-aurora: radial-gradient(
+      ellipse at center,
+      hsl(var(--gold-soft) / 0.55),
+      hsl(var(--nude) / 0.25) 45%,
+      transparent 75%
+    );
+    --gradient-warm: linear-gradient(
+      135deg,
+      hsl(var(--offwhite)) 0%,
+      hsl(var(--nude) / 0.6) 100%
+    );
+    --gradient-gold: linear-gradient(
+      135deg,
+      hsl(var(--gold)) 0%,
+      hsl(var(--gold-soft)) 100%
+    );
+    --gradient-overlay: linear-gradient(
+      180deg,
+      hsl(25 30% 15% / 0.15) 0%,
+      hsl(25 30% 12% / 0.55) 100%
+    );
+
+    --shadow-soft: 0 20px 60px -20px hsl(28 35% 40% / 0.18);
+    --shadow-glow: 0 0 80px hsl(var(--gold-soft) / 0.45);
+    --shadow-card: 0 10px 40px -15px hsl(25 30% 30% / 0.15);
+
+    --transition-smooth: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "kern";
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif tracking-tight;
+    font-feature-settings: "liga", "dlig";
+  }
+}
+
+@layer utilities {
+  .aurora-glow {
+    background: var(--gradient-aurora);
+  }
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .editorial-shadow {
+    box-shadow: var(--shadow-soft);
+  }
+  .glow-shadow {
+    box-shadow: var(--shadow-glow);
+  }
+  .fade-up {
+    animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .fade-in {
+    animation: fadeIn 1.4s ease-out both;
+  }
+  .glow-pulse {
+    animation: glowPulse 6s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
